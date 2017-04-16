@@ -1,0 +1,58 @@
+import numpy as np
+import tensorflow as tf
+import pandas as pd
+import pickle
+
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation
+from keras.optimizers import SGD
+from keras.callbacks import TensorBoard
+
+print('Imports done.')
+
+print('Reading csv...')
+data = pd.read_csv('../input/train_cleaned.csv')
+data = data.dropna()
+print('Done...')
+
+print('Loading glove vectors...')
+model = pickle.load(open('model_glove_common_crawl.pkl', 'rb'))
+print('Done.')
+
+dim = 50
+N = len(data['question1'])
+
+train_data = []
+train_labels = []
+
+print('Creating Training data...');
+for i, sentence1, sentence2, label in zip(range(1,N), data['question1'].values, 
+                                          data['question2'].values, data['is_duplicate']):
+    if i % 10000 == 0:
+        print(i)
+    vector1 = [model[word] for word in sentence1.split(" ") if word in model]
+    if len(vector1) == 0:
+        mean_vec1 = model['unk']
+    else:
+        mean_vec1 = np.mean(vector1, axis=0)
+    
+    vector2 = [model[word] for word in sentence2.split(" ") if word in model]
+    
+    if len(vector2) == 0:
+        mean_vec2 = model['unk']
+    else:
+        mean_vec2 = np.mean(vector2, axis=0)
+        
+    train_data.append(np.concatenate((mean_vec1, mean_vec2)))
+    train_labels.append(label)
+print('Done.')
+
+print('Converting data to array...')
+train_data = np.array(train_data)
+print('Done.')
+
+trainX, validX, trainY, validY = train_test_split(train_data, train_labels, test_size=0.2, random_state=0)
+
+print('Training...')
+train(trainX, trainY, validX, validY, 128, n_epoch=20)
+print('Done.')
