@@ -11,10 +11,10 @@ from datetime import datetime
 from util import *
 print 'Done'
 
-INPUT_PATH = '../input_clean/'
-EMBED_PATH = '../input_clean/'
-CHECKPOINT_PATH = './log5/check_points/'
-LOGDIR = './log5/'
+INPUT_PATH = 'input_clean/'
+EMBED_PATH = 'input_clean/'
+CHECKPOINT_PATH = 'models/log5/check_points/'
+LOGDIR = 'models/log5/'
 LEARNING_RATE = 0.001
 BATCH_SIZE = 256
 MAX_STEP = 40
@@ -220,5 +220,5 @@ if __name__ == "__main__":
 
 	train(inputs, EPOCHS)
 
-	predict('../input_clean/test_conv.csv','../submission/test_pred.csv',1)
-	predict('../input_clean/train_nonaug_conv.csv','../submission/train_pred.csv',1)
+	predict('input_clean/test_conv.csv','submission/test_pred.csv',1)
+	predict('input_clean/train_nonaug_conv.csv','submission/train_pred.csv',1)

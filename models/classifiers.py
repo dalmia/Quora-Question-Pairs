@@ -7,7 +7,7 @@ from sklearn.ensemble import AdaBoostClassifier,RandomForestClassifier
 
 
 print 'Reading data'
-df_train = pd.read_csv('../input_clean/magic_train.csv').fillna(0.0)
+df_train = pd.read_csv('input_clean/magic_train.csv').fillna(0.0)
 
 X = df_train.as_matrix(['word_match','q1_q2_intersect','tfidf_word_match','kernel_prob'])
 Y = np.ravel(df_train.as_matrix(['is_duplicate']))
@@ -32,7 +32,7 @@ for clf, name in zip([clf_svm, clf_rf, clf_adaboost], ['SVM', 'Random_Forest', '
 	print "LOSS: ",log_loss(y_valid, pred, eps = 1e-15)
 
 	print 'Prediction on test'
-	df_test = pd.read_csv('../input_clean/magic_test.csv').fillna(0.0)
+	df_test = pd.read_csv('input_clean/magic_test.csv').fillna(0.0)
 
 	X_test = df_test.as_matrix(['word_match','q1_q2_intersect','tfidf_word_match','kernel_prob'])
 	pred = clf.predict_proba(X_test)

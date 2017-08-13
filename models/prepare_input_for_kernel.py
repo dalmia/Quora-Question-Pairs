@@ -16,10 +16,10 @@ print 'Import done'
 
 # In[2]:
 
-df_train = pd.read_csv('../input/train.csv')
+df_train = pd.read_csv('input/train.csv')
 df_train.head()
 
-df_test = pd.read_csv('../input/test.csv')
+df_test = pd.read_csv('input/test.csv')
 df_test.head()
 print 'Input read'
 
@@ -142,7 +142,7 @@ x_train['tfidf_word_match'] = temp
 # x_train['tfidf_word_match'] = df_train.apply(tfidf_word_match_share, axis=1, raw=True)
 print 'tfidf_word_match done'
 
-dprob = pd.read_csv('../submission/train_pred.csv')
+dprob = pd.read_csv('submission/train_pred.csv')
 x_train['kernel_prob'] = dprob['is_duplicate']
 del dprob
 print 'kernel_prob done'
@@ -150,7 +150,7 @@ print 'kernel_prob done'
 
 # In[ ]:
 
-x_train.to_csv('../input_clean/magic_train.csv',index=False)
+x_train.to_csv('input_clean/magic_train.csv',index=False)
 
 
 # In[ ]:
@@ -179,7 +179,7 @@ x_test['tfidf_word_match'] = temp
 x_test['tfidf_word_match'] = df_test.apply(tfidf_word_match_share, axis=1, raw=True)
 print 'tfidf_word_match done'
 
-dprob = pd.read_csv('../submission/test_pred.csv')
+dprob = pd.read_csv('submission/test_pred.csv')
 x_test['kernel_prob'] = dprob['is_duplicate']
 del dprob
 print 'kernel_prob done'
@@ -187,4 +187,4 @@ print 'kernel_prob done'
 
 # In[ ]:
 
-x_test.to_csv('../input_clean/magic_test.csv',index=False)
+x_test.to_csv('input_clean/magic_test.csv',index=False)
