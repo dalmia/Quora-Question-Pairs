@@ -3,7 +3,7 @@ import numpy as np
 import random as rd
 rd.seed(149263)
 
-train = pd.read_csv('../input_clean/train_clean.csv')
+train = pd.read_csv('input_clean/train_clean.csv')
 
 print('Augmenting Data...')
 #	Flipped order
@@ -71,5 +71,5 @@ for i in range(NON_DUP):
 aug = pd.concat([aug,diff],ignore_index=True)
 
 #	Save augmented training set
-aug.to_csv('../input_clean/train_aug.csv',index=False)
+aug.to_csv('input_clean/train_aug.csv',index=False)
 print('Data Augmentation done.')

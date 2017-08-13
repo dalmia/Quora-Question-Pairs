@@ -6,7 +6,7 @@ print('Imports done.')
 sent_cutoff = 40
 
 print('Loading glove vectors...')
-map_word_index = pickle.load(open('../input_clean/map_word_index.pkl', 'r'))
+map_word_index = pickle.load(open('input_clean/map_word_index.pkl', 'r'))
 print('Done.')
 
 def convert_with_labels(question1, question2, labels):
@@ -128,17 +128,17 @@ def convert_csv(in_filepath, out_filepath, is_train=None):
 	
 	conv.to_csv(out_filepath,index=False)
 
-convert_csv('../input_clean/train_clean.csv', '../input_clean/train_nonaug_conv.csv', True)
-convert_csv('../input_clean/train_aug.csv', '../input_clean/train_conv.csv', True)
-convert_csv('../input_clean/test_clean.csv', '../input_clean/test_conv.csv')
+convert_csv('input_clean/train_clean.csv', 'input_clean/train_nonaug_conv.csv', True)
+convert_csv('input_clean/train_aug.csv', 'input_clean/train_conv.csv', True)
+convert_csv('input_clean/test_clean.csv', 'input_clean/test_conv.csv')
 
 '''
 train, valid = conv_shuffle[:int(len(conv_shuffle)*0.8)],conv_shuffle[int(len(conv_shuffle)*0.8):]
 del conv_shuffle
 
 print 'Saving train data...'
-train.to_csv('../input_clean/train_conv.csv',index=False)
+train.to_csv('input_clean/train_conv.csv',index=False)
 print 'Saving validation data...'
-valid.to_csv('../input_clean/valid_conv.csv',index=False)
+valid.to_csv('input_clean/valid_conv.csv',index=False)
 '''
 print 'Clean EXIT'

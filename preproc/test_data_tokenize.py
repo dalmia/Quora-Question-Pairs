@@ -16,12 +16,12 @@ class Consumer(multiprocessing.Process):
 
 		self.tokenizer = StanfordTokenizer(options={"ptb3Escaping": True})
 		print '%s: Loading pickles...' % self.name
-		self.map_word_index = pickle.load(open('../preproc/map_word_index.pkl', 'r'))
+		self.map_word_index = pickle.load(open('preproc/map_word_index.pkl', 'r'))
 		print '%s: Done.' % self.name
 
 	def run(self):
 		proc_name = self.name
-		sys.stdout = open( 'log5/proc.' + str(os.getpid()) + ".out", "w+")
+		sys.stdout = open( 'preproc/log5/proc.' + str(os.getpid()) + ".out", "w+")
 		while True:
 			next_task = self.task_queue.get()
 			if next_task is None:
@@ -89,7 +89,7 @@ def wrapper( j,CHUNK ):
 	
 	# Create jobs
 	print('Loading data...')
-	test_data = pd.read_csv('../input/test.csv')
+	test_data = pd.read_csv('input/test.csv')
 	#test_data = test_data.loc[:28]
 	print('Done.')
 
@@ -128,13 +128,13 @@ def wrapper( j,CHUNK ):
 
 	print 'Saving to csv...'
 	test_clean.sort_index(inplace=True)
-	test_clean.to_csv('../input_clean/v_test_cleaned_'+str(j)+'.csv',index=False)	
+	test_clean.to_csv('input_clean/v_test_cleaned_'+str(j)+'.csv',index=False)	
 
 if __name__ == '__main__':
 	#CHUNK = 10
 	CHUNK = 10000
 	print('Loading data...')
-	test_data = pd.read_csv('../input/test.csv')
+	test_data = pd.read_csv('input/test.csv')
 	#test_data = test_data.loc[:28]
 	print('Done.')
 	for j in range(np.int64( np.ceil(np.float(len(test_data))/CHUNK) ) ):
@@ -142,7 +142,7 @@ if __name__ == '__main__':
 
 	test_tokenized_df = pd.DataFrame(columns=test_data.columns)
 	for j in range(np.int64( np.ceil(np.float(len(test_data))/CHUNK) ) ):
-		chunk_df = pd.read_csv('../input_clean/v_test_cleaned_'+str(j)+'.csv')
+		chunk_df = pd.read_csv('input_clean/v_test_cleaned_'+str(j)+'.csv')
 		test_tokenized_df = pd.concat([test_tokenized_df, chunk_df],ignore_index=True)
 
-	test_tokenized_df.to_csv('../input_clean/test_clean.csv', index=False)
+	test_tokenized_df.to_csv('input_clean/test_clean.csv', index=False)

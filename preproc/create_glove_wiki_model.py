@@ -17,9 +17,9 @@ def loadGloveModel(gloveFile):
     print "Done.",len(model)," words loaded!"
     return model
 
-model = loadGloveModel('../input/glove.6B/glove.6B.50d.txt')
+model = loadGloveModel('input/glove.txt')
 
 print('Saving model...')
-with open('model_glove_wiki.pkl', 'wb') as output:
+with open('preproc/model_glove_wiki.pkl', 'wb') as output:
     pickle.dump(model, output, pickle.HIGHEST_PROTOCOL)
 print('Done.')
