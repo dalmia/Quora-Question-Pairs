@@ -18,7 +18,7 @@ linked with results).
 
 ## Running the model
 
-Place the `train.csv` and `test.csv` (see the **Data** section above) in the `input` folder and run the bash script:
+Firstly, place the `train.csv`,`test.csv` (see the **Data** section above) and the pre-trained GloVe embeddings in the `input` folder. You can download the embeddings from [here](5). Then, simply run the bash script:
 
 ```bash
 bash run_model.sh
@@ -37,3 +37,4 @@ Install them using [pip](4).
 [2]: http://yann.lecun.com/exdb/publis/pdf/chopra-05.pdf
 [3]: https://arxiv.org/abs/1409.0473
 [4]: https://pypi.python.org/pypi/pip
+[5]: https://drive.google.com/open?id=0B76BuJcKjuxqZG5YdG5SekU0VFk
