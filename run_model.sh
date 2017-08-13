@@ -1,5 +1,9 @@
 if [ ! -d "input" ]; then
-	mkdir input
+	echo "'input' directory not found, create the 'input' directory with train.csv, test.csv and the pre-trained glove embeddings."
+	exit 1
+fi
+
+if [ ! -d "input_clean" ]; then
 	mkdir input_clean
 	mkdir submission
 fi
