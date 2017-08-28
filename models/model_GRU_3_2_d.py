@@ -210,15 +210,21 @@ def predict(test_file, output_file, num_test):
 				# if epoch_complete:
 				# 	print 'tid',batch['tid'][0]
 				# 	break
-				tid = np.concatenate((tid,batch['tid']),axis=0)
+				if 'tid' in batch:
+					tid = np.concatenate((tid,batch['tid']),axis=0)
 
 				p = sess.run(pred, feed_dict={in1:batch['vec1'],in2:batch['vec2']})#,overlap:batch['overlap']})
 				
 				# print p
 				preds = np.concatenate([preds,np.asarray(p)],axis = 0)
 				
-			out = pd.DataFrame({'test_id':tid, 'is_duplicate':preds})
-			out = out[['test_id','is_duplicate']]
+			if 'tid' in batch:
+				out = pd.DataFrame({'test_id':tid, 'is_duplicate':preds})
+				out = out[['test_id','is_duplicate']]
+			else:
+				out = pd.DataFrame({'is_duplicate': preds})
+				out = out[['is_duplicate']]
+				
 			if num_test>1:
 				out.to_csv(output_file+str(j)+'.csv', index=False)
 			else:
