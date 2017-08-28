@@ -58,7 +58,9 @@ class PaddedDataIterator(SimpleDataIterator):
 				epoch_complete += 1
 
 			batch = {}
-			batch['tid'] = res['test_id'].values.astype(np.int64)
+
+			# uncomment the line below if you want the CSV to include 'tid', but would need additional code changes
+			# batch['tid'] = res['test_id'].values.astype(np.int64)
 			batch['vec1'] = res.as_matrix([str(i) for i in range(MAX_STEP)])
 			batch['vec2'] = res.as_matrix([str(i) for i in range(MAX_STEP,2*MAX_STEP)])
 
