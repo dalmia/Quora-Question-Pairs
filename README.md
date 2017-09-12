@@ -1,7 +1,7 @@
 # Quora-Question-Pairs
 
 This repository contains the code for our submission in Kaggle's competition Quora Question Pairs 
-in which we ranked in the top 25%. A detailed report for the project can be found [here][https://drive.google.com/file/d/0B76BuJcKjuxqM0tVOXd1cVVXb1k/view?usp=sharing]
+in which we ranked in the top 25%. A detailed report for the project can be found [here](https://drive.google.com/file/d/0B76BuJcKjuxqM0tVOXd1cVVXb1k/view?usp=sharing)
 
 ## Data
 
