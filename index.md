@@ -11,8 +11,7 @@ in which we ranked in the top 25%. A detailed report for the project can be foun
 ## Model Architecture
 
 We use a [Siamese Neural Network](http://yann.lecun.com/exdb/publis/pdf/chopra-05.pdf) architecture with [Gated Recurrent Units](https://arxiv.org/abs/1409.0473) in combination with 
-traditional Machine Learning algorithms like Random Forest, SVM and Adaboost. (Arxiv paper soon to be 
-linked with results).
+traditional Machine Learning algorithms like Random Forest, SVM and Adaboost. 
 
 ## Running the model
 
