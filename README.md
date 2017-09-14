@@ -1,7 +1,7 @@
 # Quora-Question-Pairs
 
 This repository contains the code for our submission in Kaggle's competition Quora Question Pairs 
-in which we ranked in the top 25%. A detailed report for the project can be found [here](https://drive.google.com/file/d/0B76BuJcKjuxqM0tVOXd1cVVXb1k/view?usp=sharing)
+in which we ranked in the top 25%. A detailed report for the project can be found [here](https://drive.google.com/file/d/0B76BuJcKjuxqM0tVOXd1cVVXb1k/view?usp=sharing).
 
 ## Data
 
@@ -34,4 +34,9 @@ bash run_model.sh
 - sklearn
 - TensorFlow
 
-Install them using [pip](https://pypi.python.org/pypi/pip). 
+Install them using [pip](https://pypi.python.org/pypi/pip).
+
+## Note
+
+- If there is any issue running the code, please post it in the issue tracker.
+- If you like this repo and find it useful, please consider ★ starring it (on top right of the page) :)
