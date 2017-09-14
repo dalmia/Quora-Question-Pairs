@@ -17,7 +17,7 @@ traditional Machine Learning algorithms like Random Forest, SVM and Adaboost.
 
 ## Running the model
 
-Firstly, place the `train.csv`,`test.csv` (see the **Data** section above) and the pre-trained GloVe embeddings in the `input` folder. You can download the embeddings from [here](https://drive.google.com/open?id=0B76BuJcKjuxqZG5YdG5SekU0VFk). Then, simply run the bash script:
+Firstly, place the `train.csv`, `test.csv` (see the **Data** section above) and the pre-trained GloVe embeddings in the `input` folder. You can download the embeddings from [here](https://drive.google.com/open?id=0B76BuJcKjuxqZG5YdG5SekU0VFk). Then, simply run the bash script:
 
 ```bash
 bash run_model.sh
