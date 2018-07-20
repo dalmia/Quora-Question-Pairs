@@ -22,7 +22,7 @@ bash run_model.sh
 ```
 
 ## Contributors
-- [Ameya Godbole](https://github.com/sabersword)
+- [Ameya Godbole](https://github.com/ameyagodbole)
 - [Aman Dalmia](https://github.com/dalmia)
 
 ## Dependencies
