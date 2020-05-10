@@ -57,6 +57,7 @@ print('Done.')
 
 print('Saving cleaned data...')
 train_data.to_csv('input_clean/train_clean.csv', )
+train_data.fillna('', inplace=True)
 print('Done.')
 
 words = list(words)

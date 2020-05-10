@@ -7,6 +7,9 @@ import sys
 from nltk.tokenize import StanfordTokenizer
 print('Imports Done.')
 
+file_path=open('preproc/map_word_index.pkl', 'rb')
+map_word_index_model=pickle.load(file_path)
+
 class Consumer(multiprocessing.Process):
 	def __init__(self, task_queue, result_queue):
 		
@@ -16,7 +19,7 @@ class Consumer(multiprocessing.Process):
 
 		self.tokenizer = StanfordTokenizer(options={"ptb3Escaping": True})
 		print '%s: Loading pickles...' % self.name
-		self.map_word_index = pickle.load(open('preproc/map_word_index.pkl', 'r'))
+		self.map_word_index = map_word_index_model
 		print '%s: Done.' % self.name
 
 	def run(self):
